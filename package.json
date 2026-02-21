@@ -1,0 +1,20 @@
+{
+  "name": "fluid-tg-bot",
+  "version": "2.0.0",
+  "type": "module",
+  "description": "Telegram bot monitoring Fluid Protocol rates, TVL, and liquidity across all chains",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "test": "node src/test.js"
+  },
+  "dependencies": {
+    "node-telegram-bot-api": "^0.66.0",
+    "dotenv": "^16.4.0",
+    "cron": "^3.1.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
