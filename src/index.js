@@ -2,7 +2,7 @@ import 'dotenv/config';
 import { CronJob } from 'cron';
 import { initBot } from './services/telegram.js';
 import { runRateMonitor } from './jobs/rateMonitor.js';
-import { runDailyDigest } from './jobs/dailyDigest.js';
+// import { runDailyDigest } from './jobs/dailyDigest.js';
 import { log } from './utils/logger.js';
 
 // Validate env
@@ -49,7 +49,6 @@ runRateMonitor().catch((err) => log.error('Initial run failed:', err.message));
 function shutdown() {
   log.info('Shutting down...');
   rateJob.stop();
-  digestJob.stop();
   process.exit(0);
 }
 process.on('SIGINT', shutdown);

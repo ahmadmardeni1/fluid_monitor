@@ -14,6 +14,9 @@ export const THRESHOLDS = {
   // Minimum rate in bps to avoid noise (rate going 1bp->2bp is 100% but irrelevant)
   minRateForAlert: 10, // 0.10%
 
+  // Minimum absolute TVL change in USD to trigger alert
+  minTvlChangeUsd: 100_000, // $100k
+
   // Minimum TVL (in raw token units / 10^decimals) to avoid dust pool alerts
   minTvlUsd: 10000,
 };

@@ -1,4 +1,5 @@
 import { API_BASE, CHAINS } from '../config/chains.js';
+import { fetchJupLendVaults } from './jupLendFetcher.js';
 import { log } from '../utils/logger.js';
 
 async function fetchJson(url) {
@@ -112,5 +113,16 @@ export async function fetchAllData() {
       log.error('Chain fetch failed:', result.reason?.message);
     }
   }
+
+  // Fetch JupLend vaults (Solana)
+  try {
+    const jupLend = await fetchJupLendVaults();
+    if (jupLend && jupLend.liquidity.length > 0) {
+      data[jupLend.chain] = jupLend;
+    }
+  } catch (error) {
+    log.error('JupLend fetch failed:', error.message);
+  }
+
   return data;
 }
